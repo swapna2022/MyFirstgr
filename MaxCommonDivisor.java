@@ -13,18 +13,22 @@ public class MaxCommonDivisor {
 		int maxDivisor;
 		List<Integer> al = new ArrayList<Integer>();
 		int div;
-
-		for (int i = 1; i < min; i++) {
-			if (x % i == 0 && y % i == 0) {
-				div = i;
-				al.add(div);
+		if (x == 0 || y == 0) {
+			System.out.println("Greatest common divisor of " + x + " and " + y + " is " + Math.max(x, y));
+			return Math.max(x, y);
+		} else {
+			for (int i = 1; i < min; i++) {
+				if (x % i == 0 && y % i == 0) {
+					div = i;
+					al.add(div);
+				}
 			}
-		}
-		System.out.println(al);
-		maxDivisor = al.get(al.size() - 1);
-		System.out.println("Greatest common divisor of " + x + " and " + y + " is " + maxDivisor);
-		return maxDivisor;
+			System.out.println(al);
+			maxDivisor = al.get(al.size() - 1);
+			System.out.println("Greatest common divisor of " + x + " and " + y + " is " + maxDivisor);
+			return maxDivisor;
 
+		}
 	}
 
 	@Test
@@ -40,6 +44,11 @@ public class MaxCommonDivisor {
 	@Test
 	public void test3() {
 		Assert.assertEquals(commonMaxdivisor(100, 50), 25);
+	}
+
+	@Test
+	public void test4() {
+		Assert.assertEquals(commonMaxdivisor(0, 12), 12);
 	}
 
 }
