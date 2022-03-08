@@ -1,0 +1,32 @@
+Started by user Swapna Ramini
+Running as SYSTEM
+Building in workspace C:\Javaselenium\eclipse-workspace\openCart
+[openCart] $ cmd.exe /C "mvn -f pom.xml test -Dcucumber.options=src\test\java\openCartFeature\openCart.feature && exit %%ERRORLEVEL%%"
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< com.cucumber:openCart >------------------------
+[INFO] Building openCart 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ openCart ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Javaselenium\eclipse-workspace\openCart\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ openCart ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:testResources (default-testResources) @ openCart ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory C:\Javaselenium\eclipse-workspace\openCart\src\test\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ openCart ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M5:test (default-test) @ openCart ---
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.823 s
+[INFO] Finished at: 2022-03-07T10:00:17-05:00
+[INFO] ------------------------------------------------------------------------
+Finished: SUCCESS
