@@ -1,0 +1,23 @@
+{
+"Customers details": [{
+"Name ":"Andrew",
+"Ph no": "4568504985",
+"Address" : "4589 west hwy"
+},
+{
+"Name ":"David",
+"Ph no": "4572530495",
+"Address" : "5648 pine blvd"
+},
+{
+"Name ":"Philip",
+"Ph no": "75369512486",
+"Address" : "4697 Peachtree pkwy"
+},
+{
+"Name ":"Martin",
+"Ph no": "95142687423",
+"Address" : "823 Farmers st"
+}
+]
+}
