@@ -1,0 +1,42 @@
+SQL Query Assignment
+1)DISPLAY THE DETAILS OF DEPARTMENTS WHICH ARE LOCATED IN ASIA?
+
+select * from departments where 
+location_id  in (select location_id from locations where
+country_id in (select country_id from countries where 
+region_id in (select region_id from regions where region_name in 'Asia')))
+
+
+2) DISPLAY THE DEPARTMENT ID WHICH HAS THE JOB_TITLES LIKE 'MANAGER'?
+
+select department_id from employees where job_id in
+(select job_id from jobs where job_title in 'manager')
+
+select department_id from employees e join jobs j on e.job_id = j.job_id where job_title in 'manager'
+
+3)DISPLAY THE COUNTRIES LOCATED IN EUROPE REGION?
+
+select country_name from countries c join regions r 
+on c.region_id = r.region_id where region_name in 'Europe'
+
+
+4) DISPLAY THE DETAILS OF EMPLOYEES WHOSE NAME STARTS WITH S AND WORKING IN USA?
+select * from employees e join departments d 
+on e.department_id = d.department_id join locations l 
+on d.location_id = l.location_id join countries c on l.country_id = c.country_id 
+where country_name in 'United States of America' and first_name like 'S%' 
+
+5)DISPLAY THE TOTAL NUMBER OF EMPLOYEES WORKING ON IT DEPARTMENT?
+
+select count(*) from employees where department_id in 
+(select department_id from departments where department_name in 'IT')
+
+6) DISPLAY THE POSTAL CODE OF CITIES IN USA?
+
+select postal_code from locations where country_id in 
+(select country_id from countries where country_name in 'United States of America')
+
+7)DISPLAY THE STREET ADDRESS OF LOCATIONS IN EUROPE REGION?
+
+select street_address from locations l join countries c on l.country_id = c.country_id 
+join regions r on c.region_id = r.region_id where region_name in 'Europe'
