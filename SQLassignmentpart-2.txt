@@ -1,0 +1,52 @@
+Sql assignment part 2
+
+---DISPLAY THE TOTAL NUMBER OF EMPLOYEES WORKING ON EUROPE REGION?
+
+select count(*) as TotalEmployees from hr.employees e join hr.departments d 
+on e.department_id = d.department_id join hr.locations l on 
+d.location_id = l.location_id join hr.countries c on l.country_id = c.country_id 
+join hr.regions r on c.region_id = r.region_id where region_name in 'Europe'
+
+
+-- DISPLAY THE AVERAGE SALARY OF EMPLOYEES IN USA
+
+select avg(salary) from hr.employees e join hr.departments d 
+on e.department_id = d.department_id join hr.locations l on 
+d.location_id = l.location_id join hr.countries c 
+on l.country_id = c.country_id where country_name like 'United States of America'
+
+
+-- DISPLAY THE MAXIMUM SALARY OF EMPLOYEES IN SALES DEPARTMENT
+select max(salary), department_name from hr.employees e join hr.departments d 
+on e.department_id = d.department_id group by d.department_name 
+having department_name in 'Sales'
+
+
+
+-- DISPLAY THE TOTAL NUMBER OF CITIES IN ASIA
+select count(city) as totalCities from hr.locations l join hr.countries c
+on l.country_id = c.country_id join hr.regions r 
+on c.region_id = r.region_id group by region_name having region_name in 'Asia'
+
+
+-- DISPLAY THE TOTAL EMPLOYEES HOLDING DIFFERENT JOB TITLES
+--M MANAGER : 2
+
+-- DISPLAY THE TOTAL EMPLOYEES HOLDING DIFFERENT JOB TITLES
+select count(*) as Total, job_title from hr.employees e join hr.jobs j 
+on e.job_id = j.job_id group by job_title
+
+select count(*) as Total, job_title from hr.employees e join hr.jobs j 
+on e.job_id = j.job_id group by job_title having job_title like '%Manager%'
+
+
+--DISPLAY THE TOTAL NUMBER OF EMPLOYEES IN EACH DEPARTMENT
+select count(*) as Total, d.department_name from hr.employees e join hr.departments d 
+on e.department_id = d.department_id group by department_name
+
+
+-- DISPLAY THE DEPARTMENT WITH MAXIMUM EMPLOYEES
+select d.department_name, d.department_id from hr.departments d where
+d.department_id =(select e.department_id from hr.employees e
+group by department_id having count(*)=(select max(count(*))
+from hr.employees e group by e.department_id))
